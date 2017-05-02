@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-	
+
 */
 
 #include "qwsvdef.h"
@@ -157,7 +157,7 @@ cvar_t	deathmatch = {"deathmatch","3",CVAR_SERVERINFO};
 cvar_t	watervis = {"watervis","0",CVAR_SERVERINFO};
 cvar_t	serverdemo = {"serverdemo","",CVAR_SERVERINFO | CVAR_ROM};
 
-cvar_t	samelevel = {"samelevel","1"}; // dont delete this variable - it used by mods
+cvar_t	samelevel = {"samelevel","0"}; // dont delete this variable - it used by mods
 cvar_t	skill = {"skill", "1"}; // dont delete this variable - it used by mods
 cvar_t	coop = {"coop", "0"}; // dont delete this variable - it used by mods
 
@@ -974,7 +974,7 @@ qbool CheckPasswords( char *userinfo, int userinfo_size, qbool *spass_ptr, qbool
 
 	Info_RemoveKey (userinfo, "password"); // remove passwd
 
-	// copy 
+	// copy
 	*spass_ptr     = spass;
 	*vip_ptr       = vip;
 	*spectator_ptr = spectator;
@@ -1220,7 +1220,7 @@ static void SVC_DirectConnect (void)
 				  && (
 				  	      ( (int)sv_forcespec_onfull.value == 2
 							&&   (Q_atoi(Info_ValueForKey(userinfo, "svf")) & SVF_SPEC_ONFULL)
-				  	      ) 
+				  	      )
 				   	   		||
 						  ( (int)sv_forcespec_onfull.value == 1
 							&&   !(Q_atoi(Info_ValueForKey(userinfo, "svf")) & SVF_NO_SPEC_ONFULL)
@@ -3587,7 +3587,7 @@ void OnChange_logdir_var (cvar_t *var, char *value, qbool *cancel)
 	{
 		*cancel = true;
 		return;
-	}	
+	}
 
 	if (value[0])
 		Sys_mkdir (value);
